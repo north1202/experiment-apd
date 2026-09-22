@@ -1,0 +1,41 @@
+=== 最优分类 (K=12) 主题概览 ===
+    Topic  Count                                         Name
+0      -1     14                     -1_ai_use_study_research
+1       0     52               0_education_ai_academic_higher
+2       1     51             1_ai_research_scientific_ethical
+3       2     27                 2_ai_human_generative_ethics
+4       3     26                   3_students_use_ai_academic
+5       4     21               4_ai_writing_academic_students
+6       5     16          5_research_integrity_academic_study
+7       6     11                6_students_student_ai_ethical
+8       7     10     7_misconduct_academic_personality_traits
+9       8     10                8_generated_detection_ai_text
+10      9      8          9_academic_integrity_use_misconduct
+11     10      7  10_editorial_standards_journals_publication
+12     11      5              11_genai_integrity_academic_new
+Topic 0: education, ai, academic, higher, genai, integrity, students, use, study, ethical
+Topic 1: ai, research, scientific, ethical, llms, human, use, publishing, tools, text
+Topic 2: ai, human, generative, ethics, research, ethical, authorship, paper, academic, scholarly
+Topic 3: students, use, ai, academic, chatgpt, integrity, perceived, adoption, study, awareness
+Topic 4: ai, writing, academic, students, tools, use, study, integrity, mt, chatgpt
+Topic 5: research, integrity, academic, study, scientific, intelligence, trends, artificial, circle, science
+Topic 6: students, student, ai, ethical, reflections, use, ethics, course, study, learning
+Topic 7: misconduct, academic, personality, traits, students, usage, associated, ai, irresponsible, dark
+Topic 8: generated, detection, ai, text, model, content, human, tools, essays, cnn
+Topic 9: academic, integrity, use, misconduct, support, policy, institutional, genai, ethical, ai
+Topic 10: editorial, standards, journals, publication, reproducibility, evidence, scientific, transparency, review, peer
+Topic 11: genai, integrity, academic, new, wcs, education, hei, meso, challenges, learning
+
+=== 12个最优主题核心特征词清单 ===
+Topic 0: education, ai, academic, higher, genai, integrity, students, use, study, ethical
+Topic 1: ai, research, scientific, ethical, llms, human, use, publishing, tools, text
+Topic 2: ai, human, generative, ethics, research, ethical, authorship, paper, academic, scholarly
+Topic 3: students, use, ai, academic, chatgpt, integrity, perceived, adoption, study, awareness
+Topic 4: ai, writing, academic, students, tools, use, study, integrity, mt, chatgpt
+Topic 5: research, integrity, academic, study, scientific, intelligence, trends, artificial, circle, science
+Topic 6: students, student, ai, ethical, reflections, use, ethics, course, study, learning
+Topic 7: misconduct, academic, personality, traits, students, usage, associated, ai, irresponsible, dark
+Topic 8: generated, detection, ai, text, model, content, human, tools, essays, cnn
+Topic 9: academic, integrity, use, misconduct, support, policy, institutional, genai, ethical, ai
+Topic 10: editorial, standards, journals, publication, reproducibility, evidence, scientific, transparency, review, peer
+Topic 11: genai, integrity, academic, new, wcs, education, hei, meso, challenges, learning
