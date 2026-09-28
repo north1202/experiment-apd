@@ -1,0 +1,158 @@
+{
+  "dataset_id": "academic_e0d548a1d145af39",
+  "status": "verified",
+  "node_counts": {
+    "Topic": 12,
+    "HarmType": 5,
+    "GovernanceDomain": 4,
+    "Stakeholder": 5,
+    "Paper": 244,
+    "Observation": 772
+  },
+  "relationship_counts": {
+    "IN_TOPIC": 244,
+    "HAS_OBSERVATION": 772,
+    "HAS_HARM": 772,
+    "IN_DOMAIN": 1274,
+    "INVOLVES": 1329,
+    "CO_OCCURS": 219
+  },
+  "evidence_relationships": 4391,
+  "case_query": {
+    "observations": 50,
+    "papers": 34
+  },
+  "audit": {
+    "duplicate_record_groups": [
+      [
+        "REC_0001",
+        "REC_0193"
+      ],
+      [
+        "REC_0002",
+        "REC_0194"
+      ],
+      [
+        "REC_0003",
+        "REC_0195"
+      ],
+      [
+        "REC_0004",
+        "REC_0196"
+      ],
+      [
+        "REC_0047",
+        "REC_0197"
+      ],
+      [
+        "REC_0048",
+        "REC_0198"
+      ],
+      [
+        "REC_0049",
+        "REC_0199"
+      ],
+      [
+        "REC_0050",
+        "REC_0200"
+      ],
+      [
+        "REC_0063",
+        "REC_0190"
+      ],
+      [
+        "REC_0065",
+        "REC_0192"
+      ],
+      [
+        "REC_0077",
+        "REC_0205"
+      ],
+      [
+        "REC_0078",
+        "REC_0206"
+      ],
+      [
+        "REC_0079",
+        "REC_0207"
+      ],
+      [
+        "REC_0103",
+        "REC_0184"
+      ],
+      [
+        "REC_0104",
+        "REC_0185"
+      ],
+      [
+        "REC_0144",
+        "REC_0187"
+      ],
+      [
+        "REC_0145",
+        "REC_0188"
+      ],
+      [
+        "REC_0146",
+        "REC_0189"
+      ],
+      [
+        "REC_0148",
+        "REC_0202"
+      ],
+      [
+        "REC_0149",
+        "REC_0203"
+      ],
+      [
+        "REC_0150",
+        "REC_0204"
+      ],
+      [
+        "REC_0427",
+        "REC_0449"
+      ],
+      [
+        "REC_0431",
+        "REC_0450"
+      ],
+      [
+        "REC_0432",
+        "REC_0451"
+      ]
+    ],
+    "missing_mitigation": 81,
+    "papers_without_observations": [
+      "LIT_0037",
+      "LIT_0172",
+      "LIT_0176",
+      "LIT_0177",
+      "LIT_0181",
+      "LIT_0192",
+      "LIT_0193"
+    ]
+  },
+  "database_validation": {
+    "status": "verified",
+    "node_counts": {
+      "Topic": 12,
+      "HarmType": 5,
+      "GovernanceDomain": 4,
+      "Stakeholder": 5,
+      "Paper": 244,
+      "Observation": 772
+    },
+    "relationship_counts": {
+      "CO_OCCURS": 219,
+      "IN_TOPIC": 244,
+      "HAS_HARM": 772,
+      "IN_DOMAIN": 1274,
+      "INVOLVES": 1329,
+      "HAS_OBSERVATION": 772
+    },
+    "case_query": {
+      "observations": 50,
+      "papers": 34
+    }
+  }
+}
