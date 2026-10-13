@@ -1,0 +1,38 @@
+{
+  "dataset_id": "academic_desktop_en_v1_b92a83d34b78f6cd",
+  "status": "local_only",
+  "node_counts": {
+    "Topic": 12,
+    "HarmType": 5,
+    "GovernanceDomain": 4,
+    "Stakeholder": 5,
+    "Paper": 244,
+    "Observation": 772
+  },
+  "relationship_counts": {
+    "IN_TOPIC": 244,
+    "HAS_OBSERVATION": 772,
+    "HAS_HARM": 772,
+    "IN_DOMAIN": 1274,
+    "INVOLVES": 1329,
+    "CO_OCCURS": 219
+  },
+  "evidence_relationships": 4391,
+  "case_query": {
+    "observations": 50,
+    "papers": 34
+  },
+  "audit": {
+    "duplicate_record_groups": [],
+    "missing_mitigation": 81,
+    "papers_without_observations": [
+      "LIT_0037",
+      "LIT_0172",
+      "LIT_0176",
+      "LIT_0177",
+      "LIT_0181",
+      "LIT_0192",
+      "LIT_0193"
+    ]
+  }
+}

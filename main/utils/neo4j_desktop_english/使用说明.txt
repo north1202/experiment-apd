@@ -1,0 +1,81 @@
+Neo4j Desktop英文图谱使用说明
+
+一、这个包是什么
+neo4j_desktop_english.py：从之前的neo4j_academic_kg.py修改而来。
+Python脚本仍在PyCharm运行；Neo4j Desktop负责启动本地数据库、执行Cypher查询和显示图谱。
+knowledge_graph_overview_PREVIEW.html：用当前244篇文献、772条观察生成的英文类别概览，可直接打开并下载SVG。只是本地预览，未在你的Neo4j中导入。
+graph_style.grass：Neo4j Query/Browser的颜色与英文标题样式。
+requirements.txt：Python驱动依赖。
+
+二、建立本地数据库（Desktop 2.x）
+1. 打开Neo4j Desktop，点击Create instance。
+2. 给实例起名，例如Academic Publishing KG。选择Neo4j版本。
+3. 建立数据库用户及密码。可以使用neo4j作为用户名。
+4. Create后启动实例，等到Running。查看实例卡片显示的连接URI。
+5. 默认用户数据库通常为neo4j。实例的显示名称不等于数据库名称。
+6. 进入左侧Query，或实例卡片Connect菜单中的Query。
+
+三、准备CSV
+把脚本和以下两个文件放在同一文件夹：
+Literature_Metadata.csv
+Summary_Observations.csv
+
+保留244篇的文献元数据与772条观察，不要因全文包移除了EF组而删掉相应分析记录。
+可选拆分表：HarmType_Observations.csv、ProblemsAndSolutions_Observations.csv、PublishingScenario_Observations.csv、Stakeholder_Observations.csv。存在时会核对与总表一致；没有也可使用两个核心CSV运行。
+如果你的伤害分类文件实际叫Harm_Observations.csv，原脚本的可选文件名HarmType_Observations.csv不会匹配它；两个核心CSV已足够，不必为了运行而修改原表名称或内容。
+
+四、让所有图谱文字成为英文
+主题、伤害类型、治理环节、主体、关系类型、图例、页面按钮、程序日志已经改为英文。
+英文主题名是原中文主题简称的对应翻译，不是重新运行BERTopic得到的新主题。
+源CSV中的Literature_Title、Manifestation_Text、Mitigation_Text不自动翻译或改写。
+本次找到的两个Summary版本相同，其中1463个非空文本字段含中文。正式导入前程序会列出例子并停止，避免把中文正文导入为“全英文图谱”。
+请在单独的数据目录里使用经过核对的英文CSV副本，文件名仍为Summary_Observations.csv；保持Record_ID、Literature_ID、主题编号和0/1标签不变。
+如同时放入ProblemsAndSolutions_Observations.csv，其两列正文也必须与英文综合表一致；否则程序会指出不一致。
+中文字符检查用于发现未替换的中文字段，并不能验证英文翻译质量或检测所有其他语言。
+只想先查看英文概览时，可把DRY_RUN改为True。这个模式不连接数据库，也不要求观察正文先完成翻译；概览只显示英文类别名称和数字，不显示正文。
+
+五、PyCharm运行
+使用Python 3.10或更高版本。在PyCharm Terminal执行：
+python -m pip install -r requirements.txt
+
+打开neo4j_desktop_english.py，修改最上方配置：
+NEO4J_URI = 'bolt://localhost:7687'
+NEO4J_USERNAME = 'neo4j'
+NEO4J_PASSWORD = '你在本地Desktop创建的数据库密码'
+NEO4J_DATABASE = 'neo4j'
+DRY_RUN = False
+
+URI以本地实例显示值为准。用户名用本地创建的用户；不要直接沿用Aura凭证或网站邮箱。
+若CSV不在脚本旁，设置DATA_DIR = Path(r'E:\你的数据文件夹')。
+右键脚本，Run。启动前保持Desktop实例Running。
+连接、批次提交与最后的计数校验都会显示进度。看到verified后再认为数据库导入已通过。
+密码留空时可从NEO4J_PASSWORD环境变量读取；不要将填入密码后的脚本上传公共仓库。
+
+六、到Desktop里看图
+程序会打印输出目录：CSV目录/neo4j_output/academic_desktop_en_v1_.../
+里面包括Neo4j_queries.cypher、graph_style.grass、knowledge_graph_overview.html、import_validation_report.json。
+把Neo4j_queries.cypher里的查询逐条复制到Desktop Query执行，不要将整段Python粘贴到Query。
+查询示例包括：类别共现概览；单条观察的文献来源、主题与标签；原文及DOI；主题文献与观察计数；同行评议和出版者/编辑的应用例子；共现关系的具体证据溯源。
+所有生成查询限定本次dataset_id，避免混入旧图谱。英文数据修改后dataset_id会变化，请使用新输出的查询文件。
+
+七、英文标题、配色与数量
+在Query图形结果中，为节点Caption选择name，即可显示英文名称。
+也可执行:style，并使用Upload导入graph_style.grass。
+如果Topic等类别颜色未生效，将Topic、HarmType、GovernanceDomain、Stakeholder等具体标签排在公共AcademicKG标签之前。多标签节点的样式受标签优先顺序影响。
+蓝色Topic；橙色HarmType；绿色GovernanceDomain；紫色Stakeholder；灰色Paper；黄色Observation。
+此GraSS样式按类型配色、使用固定尺寸，不会自动让Neo4j Query按paper_count连续缩放。
+数量可视化请打开knowledge_graph_overview.html：可分别选择Distinct papers或Observations作为节点大小指标；选择Co-occurring papers或Co-occurring observations作为线宽指标；点击Download SVG保存矢量图。
+Topic.paper_count包括同主题下没有观察记录的文献；其他类别paper_count为支持观察的文献去重数；observation_count为观察记录数。不要混用两种频率。
+
+八、核验范围
+已用当前244篇/772条CSV完成本地图构建、与原脚本的结构/计数对照、英文固定文本检查，以及中文正文拦截检查。
+本地预览计数：1042个节点，4391条证据关系，219条共现关系。其中文献244、观察772、主题12、伤害5、治理环节4、主体5。
+未访问你电脑或连接你的本地Neo4j；数据库连接与实际写入仍需在你的电脑执行。
+同样数据重复运行使用MERGE，不叠加节点或权重；新版本使用独立dataset_id，不删除旧图谱。计数包含源表保留的重复内容记录。
+
+官方操作参考
+https://neo4j.com/docs/desktop/current/operations/instance-management/
+https://neo4j.com/docs/desktop/current/operations/database-management/
+https://neo4j.com/docs/desktop/current/query/
+https://neo4j.com/docs/python-manual/current/connect/
+https://neo4j.com/docs/browser/operations/browser-styling/

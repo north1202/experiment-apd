@@ -1,0 +1,9 @@
+node { caption: "{name}"; diameter: 60px; font-size: 10px; }
+node.Topic { color: "#3b82f6"; caption: "{name}"; }
+node.HarmType { color: "#ef8354"; caption: "{name}"; }
+node.GovernanceDomain { color: "#36a398"; caption: "{name}"; }
+node.Stakeholder { color: "#9666c3"; caption: "{name}"; }
+node.Paper { color: "#64748b"; caption: "{name}"; }
+node.Observation { color: "#e5b34b"; caption: "{name}"; }
+relationship { caption: "<type>"; shaft-width: 1px; }
+relationship.CO_OCCURS { caption: "{paper_count}"; }
